@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
-import First from "./component/First";
-import Second from "./component/Second";
-import Third from "./component/Third";
-import Forth from "./component/Forth";
-import Fifth from "./component/fifth";
-
-export default function App() {
+const App = () => {
+  const [unam, setA] = useState("Souptik Bej");
+  const [num , setB] = useState(0);
+  const change = () => {
+    setA("Sutapa Bej");
+  };
   return (
-    <>
-      <First />
-      <Second/>
-      <Third/>
-      <Forth/>
-      <Fifth/>
-    </>
+    <div>
+      <h1>User Name :{unam}</h1>
+      <button onClick={change}>Change</button>
+      <h1>Add to cart : {num}</h1>
+      <button onClick={()=>{setB(num+1)}}>+</button>
+      <button onClick={()=>{setB(num-1)}}>-</button>
+    </div>
   );
-}
+};
+
+export default App;
