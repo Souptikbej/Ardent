@@ -1,5 +1,5 @@
 /* @import "tailwindcss"; */
-.formdiv{
+.formdiv {
     width: 500px;
     align-items: center;
     display: flex;
@@ -7,25 +7,29 @@
     background-color: aquamarine;
     border: 1px solid black;
 }
-.tablediv{
+
+.tablediv {
     width: 100%;
     border: 1px solid black;
 }
-table thead tr th{
+
+table thead tr th {
     text-align: left;
     font-size: 20px;
     border-bottom: 1px solid rgb(0, 0, 0);
     padding: 3px 15px;
     width: 100%;
 }
-table tbody tr td{
+
+table tbody tr td {
     display: flex;
     justify-content: space-between;
     font-size: medium;
-    padding:10px 0px;
+    padding: 10px 0px;
     width: 100%;
 }
- /* #maindiv{
+
+/* #maindiv{
     background-color: brown;
     width: 800px;
     height: 800px;
