@@ -1,12 +1,12 @@
 import React from "react";
-// import Form from "./examples/Form";
-import Chaseboard from "./examples/Chaseboard";
+import Form from "./examples/Form";
+// import Chaseboard from "./examples/Chaseboard";
 
 const App = () => {
   return (
     <div>
-      <Chaseboard />
-      {/* <Form /> */}
+      {/* <Chaseboard /> */}
+      <Form />
     </div>
   );
 };

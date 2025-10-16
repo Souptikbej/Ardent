@@ -2,8 +2,8 @@ import React from "react";
 
 const Form = () => {
   return (
-    <div>
-      <table>
+    <div className="formdiv">
+      <table className="tablediv">
         <thead>
           <tr>
             <th>Personal Details : </th>

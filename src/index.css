@@ -1,20 +1,31 @@
 /* @import "tailwindcss"; */
-/* table thead tr th{
-    font-size: medium;
-    border: 0.3px solid black;
-    padding: 3px 10px;
+.formdiv{
+    width: 500px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: aquamarine;
+    border: 1px solid black;
+}
+.tablediv{
+    width: 100%;
+    border: 1px solid black;
+}
+table thead tr th{
+    text-align: left;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    padding: 3px 15px;
     width: 100%;
 }
 table tbody tr td{
-    
+    display: flex;
+    justify-content: space-between;
     font-size: medium;
-    text-align: left;
-    border: 0.3px solid black;
-    padding: 10px 10px;
+    padding:10px 0px;
     width: 100%;
-    grid-area: 0;
-} */
- #maindiv{
+}
+ /* #maindiv{
     background-color: brown;
     width: 800px;
     height: 800px;
@@ -39,4 +50,4 @@ table tbody tr td{
     display: inline-flex;
     width: 100px;
     height: 100px;
-}
+} */
