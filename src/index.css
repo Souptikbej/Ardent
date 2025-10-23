@@ -1,6 +1,13 @@
 /* @import "tailwindcss"; */
 
-
+.card{
+    height: 250px;
+    border-top: 10px;
+    border-bottom: 10px;
+    border-radius: 15px;
+    border-color: blue;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
 
 /* .formdiv {
     width: 500px;

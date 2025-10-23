@@ -8,16 +8,16 @@ const Reschessboard = () => {
       </h3>
       <div class="row g-4">
         <div class="col-lg-3 col-md-6 col-12">
-          <div class="card border-top-info-3 border-bottom-3 rounded-3"></div>
+          <div class="card"></div>
         </div>
         <div class="col-lg-3 col-md-6 col-12">
-          <div class="card border-top-info-3 border-bottom-3 rounded-3"></div>
+          <div class="card"></div>
         </div>
         <div class="col-lg-3 col-md-6 col-12">
-          <div class="card border-top-info-3 border-bottom-3 rounded-3"></div>
+          <div class="card"></div>
         </div>
         <div class="col-lg-3 col-md-6 col-12">
-          <div class="card border-top-info-3 border-bottom-3 rounded-3"></div>
+          <div class="card"></div>
         </div>
       </div>
     </div>
