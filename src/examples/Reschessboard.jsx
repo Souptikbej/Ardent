@@ -1,5 +1,4 @@
 import React from "react";
-// import Tree from '../assets/tree.jpg';
 import Manone from "../assets/Manone.png";
 import Mantwo from "../assets/Mantwo.png";
 import Manthree from "../assets/Manthree.png";
