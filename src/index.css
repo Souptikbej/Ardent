@@ -1,12 +1,42 @@
 /* @import "tailwindcss"; */
 
-.card{
-    height: 250px;
-    border-top: 10px;
-    border-bottom: 10px;
+.card {
+    height: 280px;
+    border: none;
+    border-bottom: 5px solid rgb(255, 0, 0);
     border-radius: 15px;
-    border-color: blue;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid red;
+    margin: 20px auto 10px;
+}
+
+.designation {
+    background-color: #e50914;
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 8px 35px 0px 35px;
+}
+
+.section-title {
+    color: #c00;
+    font-weight: 700;
 }
 
 /* .formdiv {
