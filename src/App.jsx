@@ -1,13 +1,9 @@
 import React from "react";
-import FormOriginal from "./examples/FormOriginal";
-// import Form from "./examples/Form";
-// import Chaseboard from "./examples/Chaseboard";
-
+import Reschessboard from "./examples/reschessboard";
 const App = () => {
   return (
     <div>
-      {/* <Chaseboard /> */}
-      <FormOriginal />
+      <Reschessboard/>
     </div>
   );
 };
