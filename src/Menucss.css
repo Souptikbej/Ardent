@@ -1,0 +1,22 @@
+.menu {
+    height: 60px;
+    padding-top: 12px;
+    background-color: red;
+}
+
+.menu nav ul li {
+    display: inline-block;
+}
+
+.menu nav ul li .nav {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 3px 7px;
+}
+
+.menu nav ul li .nav:hover {
+    background-color: #fff;
+    color: red;
+    border-radius: 3px;
+}
