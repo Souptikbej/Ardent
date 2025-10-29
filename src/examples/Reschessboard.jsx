@@ -13,8 +13,8 @@ const Reschessboard = () => {
         <div class="col-lg-3 col-md-6 col-12">
           <div class="card">
             <img src={Manone} class="card-img-top" alt="Profile" />
-            <p class="h6 card-title mb-1">Dr. Avijit Ghosh</p>
-            <span class="designation">Secretary, CEIE</span>
+            <p class="h6 card-title mb-1"></p>
+            <span class="designation"></span>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-12">
