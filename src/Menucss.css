@@ -1,22 +1,50 @@
+.root{
+    background-color: #FEF3E2;
+}
 .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 60px;
-    padding-top: 12px;
-    background-color: red;
+    padding: 10px 0px;
+    background-color: #FA812F;
+}
+.menu nav{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.menu nav ul{
+    margin: 0px;
+    padding: 0px;
 }
 
 .menu nav ul li {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu nav ul li .nav {
-    color: #fff;
+    color: #ffffff;
+    gap: 5px;
     text-decoration: none;
-    margin-left: 20px;
+    margin-right: 20px;
     padding: 3px 7px;
 }
 
 .menu nav ul li .nav:hover {
     background-color: #fff;
-    color: red;
+    color: rgb(255, 89, 0);
     border-radius: 3px;
+}
+
+.webname {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: xx-large;
+    font-weight: 700;
+    padding: 0px;
+    margin-left: 10px;
 }

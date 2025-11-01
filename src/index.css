@@ -1,5 +1,82 @@
 /* @import "tailwindcss"; */
+body {
+    background-color: #FEF3E2;
+}
 
+.nav-item {
+    gap: 5px;
+    text-decoration: none;
+    margin-right: 20px;
+    padding: 3px 7px;
+}
+
+.nav-link {
+    color: #FEF3E2;
+}
+
+.nav-item:hover .nav-link {
+    color: #FA812F;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+h1 {
+    color: #000;
+}
+
+.btn {
+    background-color: orange;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* 👈 smooth transition */
+}
+
+.btn:hover {
+    background-color: darkorange;
+    transform: scale(1.05);
+    /* 👈 smooth zoom-in effect */
+}
+
+/* .btn {
+    background-color: #FA812F;
+    color: #ffffff;
+    margin: 50px 0px;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.btn:hover {
+    animation: bounce 0.4s ease;
+} */
+
+/* .hero-section h1 {
+    font-size: 2.8rem;
+}
+
+@media (min-width: 768px) {
+    .hero-section h1 {
+        font-size: 3.5rem;
+    }
+}
+
+.hero-section p {
+    color: #f1f1f1;
+} */
 
 /* body {
     background-image: linear-gradient( 109.6deg,  rgba(112,246,255,0.33) 11.2%, rgba(221,108,241,0.26) 42%, rgba(229,106,253,0.71) 71.5%, rgba(123,183,253,1) 100.2% );
