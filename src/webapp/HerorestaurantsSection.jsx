@@ -127,34 +127,90 @@ const HerorestaurantsSection = () => {
         <div className="text-center py-5">
           <Loader2 size={32} className="text-primary mb-2 animate-spin" />
           <p>Detecting your location...</p>
-        </div>) : (
-            
+        </div>
+      ) : (
         <div className="row">
           {filteredRestaurants.map((res, index) => (
-            <div className="col-lg-3 col-md-4 col-sm-6 mb-4" key={index}>
-              <div className="card h-100 shadow-sm border-0">
-                <img
-                  src={res.image}
-                  className="card-img-top"
-                  alt={res.name}
-                  style={{ height: "220px", objectFit: "cover" }}
-                />
+            <div
+              className="col-lg-3 col-md-4 col-sm-6 mb-4"
+              key={index}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <div
+                className="card h-100 border-0 shadow-sm position-relative overflow-hidden hover-zoom"
+                style={{
+                  borderRadius: "15px",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-6px)";
+                  e.currentTarget.style.boxShadow =
+                    "0 8px 20px rgba(0,0,0,0.15)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow =
+                    "0 4px 10px rgba(0,0,0,0.1)";
+                }}
+              >
+                <div
+                  className="overflow-hidden"
+                  style={{ borderRadius: "15px 15px 0 0" }}
+                >
+                  <img
+                    src={res.image}
+                    className="card-img-top"
+                    alt={res.name}
+                    style={{
+                      height: "220px",
+                      objectFit: "cover",
+                      transition: "transform 0.4s ease",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.transform = "scale(1.05)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.transform = "scale(1)")
+                    }
+                  />
+                </div>
+
                 <div className="card-body">
                   <h5 className="card-title fw-bold text-dark">{res.name}</h5>
                   <p className="card-text text-muted mb-2">{res.cuisine}</p>
-                  <p className="mb-1 d-flex align-items-center">
-                    ⭐
-                    {/* <Star size={16} className="text-warning me-1" />{" "} */}
-                    <strong>{res.rating}</strong>
-                  </p>
-                  <p className="mb-1">
-                    <strong>Avg. Price:</strong> ₹{res.price}
-                  </p>
+
+                  <div className="d-flex justify-content-between align-items-center mb-2">
+                    <span className="badge bg-warning text-dark">
+                      ⭐ {res.rating}
+                    </span>
+                    <span className="text-secondary small">
+                      <i className="bi bi-currency-rupee"></i>
+                      {res.price}
+                    </span>
+                  </div>
+
                   <p className="text-secondary small mb-3 d-flex align-items-center">
-                    <MapPin size={14} className="me-1" /> {res.location}
+                    <i className="bi bi-geo-alt-fill text-danger me-1"></i>
+                    {res.location}
                   </p>
-                  <button className="btn btn-outline-primary w-100">
-                    View Menu
+
+                  <button
+                    className="btn btn-primary w-100 fw-semibold shadow-sm"
+                    style={{
+                      borderRadius: "25px",
+                      transition: "all 0.3s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#ff7b00";
+                      e.currentTarget.style.borderColor = "#ff7b00";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "";
+                      e.currentTarget.style.borderColor = "";
+                    }}
+                  >
+                    View Menu <i className="bi bi-arrow-right-short ms-1"></i>
                   </button>
                 </div>
               </div>
