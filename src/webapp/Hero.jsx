@@ -30,6 +30,7 @@ const Hero = () => {
             data.address.village ||
             "Unknown area";
           const state = data.address.state || "";
+          const fullLocation = `${city}, ${state}`;
           setLocation(`${city}, ${state}`);
         } catch {
           setError("Failed to fetch location details.");
