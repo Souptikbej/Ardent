@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import restu from "../assets/restu.jpg";
 import { MapPin, Star, Loader2 } from "lucide-react";
+import RestaurantCard from "./RestaurantCard";
 
 const allRestaurants = [
   {
@@ -69,7 +70,7 @@ const HeroRestaurantsSection = ({ location }) => {
         )}
 
         {/* Only show "View More" if more than 4 restaurants */}
-        {allRestaurants.length > 4 && (
+        {allRestaurants.length > 4 && location && (
           <NavLink
             to="/restaurants"
             className="btn btn-outline-primary fw-semibold align-self-center align-self-md-end"
