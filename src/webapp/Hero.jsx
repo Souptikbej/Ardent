@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MapPin, ArrowRight } from "lucide-react";
 import mann from "../assets/heroimg.png";
 
-const Hero = () => {
+const Hero = ({ sendLocation }) => {
   const [location, setLocation] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -32,6 +32,7 @@ const Hero = () => {
           const state = data.address.state || "";
           const fullLocation = `${city}, ${state}`;
           setLocation(`${city}, ${state}`);
+          sendLocation(fullLocation);
         } catch {
           setError("Failed to fetch location details.");
         } finally {

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { MapPin, Star, Loader2 } from "lucide-react";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import restu from "../assets/restu.jpg";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import { MapPin, Star, Loader2 } from "lucide-react";
 
 const allRestaurants = [
   {
@@ -51,94 +51,51 @@ const allRestaurants = [
   },
 ];
 
-const HerorestaurantsSection = () => {
-  const [userCity, setUserCity] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [filteredRestaurants, setFilteredRestaurants] =
-    useState(allRestaurants);
-
-  // Detect user location using geolocation API
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          try {
-            const { latitude, longitude } = position.coords;
-            // Use OpenStreetMap reverse geocoding
-            const response = await fetch(
-              `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
-            );
-            const data = await response.json();
-            const city =
-              data.address.city ||
-              data.address.town ||
-              data.address.village ||
-              "Unknown";
-
-            setUserCity(city);
-            const nearby = allRestaurants.filter(
-              (res) => res.city.toLowerCase() === city.toLowerCase()
-            );
-            setFilteredRestaurants(nearby.length ? nearby : allRestaurants);
-          } catch (error) {
-            console.error("Error fetching location:", error);
-          }
-          setLoading(false);
-        },
-        () => {
-          setLoading(false);
-        }
-      );
-    } else {
-      setLoading(false);
-    }
-  }, []);
-
-  // Handle manual city change
-  const handleCityChange = (e) => {
-    const selectedCity = e.target.value;
-    setUserCity(selectedCity);
-    const filtered = allRestaurants.filter(
-      (res) => res.city.toLowerCase() === selectedCity.toLowerCase()
-    );
-    setFilteredRestaurants(filtered);
-  };
+const HeroRestaurantsSection = ({ location }) => {
+  // Only first 4 restaurants for display
+  const visibleRestaurants = allRestaurants.slice(0, 4);
 
   return (
     <section className="container my-5">
       <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
-        <h2 className="fw-bold text-dark mb-3 mb-md-0">
-          Discover best restaurants {userCity ? `in ${userCity}` : "near you"}{" "}
-          🍽️
-        </h2>
+        {location ? (
+          <h2 className="fw-bold text-dark mb-3 mb-md-0 text-center text-md-start">
+            Discover best restaurants <strong>{location}</strong> 🍽️
+          </h2>
+        ) : (
+          <p className="text-center text-muted">
+            Please allow location access to see nearby restaurants.
+          </p>
+        )}
 
-        <select
-          className="form-select w-auto"
-          value={userCity}
-          onChange={handleCityChange}
-        >
-          <option value="">Select City</option>
-          <option value="Kolkata">Kolkata</option>
-          <option value="Delhi">Delhi</option>
-        </select>
+        {/* Only show "View More" if more than 4 restaurants */}
+        {allRestaurants.length > 4 && (
+          <NavLink
+            to="/restaurants"
+            className="btn btn-outline-primary fw-semibold align-self-center align-self-md-end"
+          >
+            View More
+          </NavLink>
+        )}
       </div>
-
-      {loading ? (
+      {!location ? (
         <div className="text-center py-5">
           <Loader2 size={32} className="text-primary mb-2 animate-spin" />
-          <p>Detecting your location...</p>
+          <p>
+            Detecting your location, Click Above Use Current Location option
+          </p>
         </div>
       ) : (
-        <div className="row">
-          {filteredRestaurants.map((res, index) => (
+        <div className="row justify-content-center">
+          {visibleRestaurants.map((res, index) => (
             <div
-              className="col-lg-3 col-md-4 col-sm-6 mb-4"
+              className="col-lg-3 col-md-4 col-sm-6 col-10 mb-4"
               key={index}
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
               <div
-                className="card h-100 border-0 shadow-sm position-relative overflow-hidden hover-zoom"
+                className="card h-100 border-0 shadow-sm overflow-hidden"
                 style={{
                   borderRadius: "15px",
                   transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -184,10 +141,7 @@ const HerorestaurantsSection = () => {
                     <span className="badge bg-warning text-dark">
                       ⭐ {res.rating}
                     </span>
-                    <span className="text-secondary small">
-                      <i className="bi bi-currency-rupee"></i>
-                      {res.price}
-                    </span>
+                    <span className="text-secondary small">₹{res.price}</span>
                   </div>
 
                   <p className="text-secondary small mb-3 d-flex align-items-center">
@@ -222,4 +176,4 @@ const HerorestaurantsSection = () => {
   );
 };
 
-export default HerorestaurantsSection;
+export default HeroRestaurantsSection;
