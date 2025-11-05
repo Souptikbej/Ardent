@@ -8,11 +8,11 @@ import PaginationExample from "./examples/PaginationExample";
 const App = () => {
   return (
     <div>
-      <PaginationExample />
+      {/* <PaginationExample /> */}
       {/* <NetflixSeries/> */}
       {/* <Foodordering/> */}
       {/* <Foodordering/> */}
-      {/* <Secondapp /> */}
+      <Secondapp />
       {/* <Thirdapp/> */}
     </div>
   );
