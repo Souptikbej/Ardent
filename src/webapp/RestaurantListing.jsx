@@ -11,6 +11,7 @@ import {
   List,
   CircleDot,
 } from "lucide-react";
+import Card from "./Card";
 
 // --- Mock Data (Same as original HTML) ---
 const restaurantsData = [
@@ -71,89 +72,7 @@ const restaurantsData = [
 ];
 
 // --- Utility Functions (for Star Rating) ---
-function getRatingStars(rating) {
-  const fullStars = Math.floor(rating);
-  const hasHalfStar = rating % 1 >= 0.25 && rating % 1 <= 0.75;
-  const totalStars = 5;
-  let stars = [];
-
-  for (let i = 0; i < totalStars; i++) {
-    if (i < fullStars) {
-      stars.push(<Star key={i} size={16} fill="#ffc107" color="#ffc107" />); // Full Star
-    } else if (i === fullStars && hasHalfStar) {
-      // Half star simulation: using a filled star with reduced opacity or different icon if available
-      // For simplicity with Lucide, we'll use a filled star for full/half, and an outline for empty.
-      stars.push(<Star key={i} size={16} fill="#ffc10766" color="#ffc107" />);
-    } else {
-      stars.push(<Star key={i} size={16} color="#ced4da" />); // Empty Star
-    }
-  }
-
-  return (
-    <div className="d-flex align-items-center me-3">
-      {stars}
-      <span className="ms-1 fw-bold text-dark">{rating.toFixed(1)}</span>
-    </div>
-  );
-}
-
 // --- Component 1: Restaurant Card ---
-const RestaurantCard = ({ restaurant }) => {
-  const isFreeDelivery = restaurant.deliveryFee === 0.0;
-  const { name, cuisine, rating, estimatedTime, isTopRated, imageUrl } =
-    restaurant;
-
-  return (
-    <div
-      className="card restaurant-card border-0 shadow-lg rounded-3 h-100"
-      style={{ transition: "transform 0.3s", cursor: "pointer" }}
-    >
-      {/* Image/Logo Area */}
-      <div className="position-relative">
-        <img
-          src={imageUrl}
-          className="card-img-top"
-          alt={name}
-          style={{ height: "160px", objectFit: "cover" }}
-        />
-        {isTopRated && (
-          <span className="position-absolute top-0 start-0 m-2 badge bg-warning text-dark shadow-sm">
-            <Star size={14} className="me-1" fill="currentColor" /> Top Rated
-          </span>
-        )}
-        {isFreeDelivery && (
-          <span className="position-absolute bottom-0 end-0 m-2 badge bg-success shadow-sm">
-            Free Delivery
-          </span>
-        )}
-      </div>
-
-      {/* Details Area */}
-      <div className="card-body p-3">
-        <h5 className="card-title fw-bold text-truncate mb-1">{name}</h5>
-        <p className="card-text text-muted small mb-3">{cuisine}</p>
-
-        {/* Stats Row */}
-        <div className="d-flex justify-content-between align-items-center small mb-3">
-          {getRatingStars(rating)}
-          <div className="d-flex align-items-center text-secondary">
-            <Clock size={16} className="me-1 text-danger" />
-            {estimatedTime} min
-          </div>
-          <div className="fw-bold text-dark">
-            {isFreeDelivery ? "FREE" : `$${restaurant.deliveryFee.toFixed(2)}`}
-          </div>
-        </div>
-
-        {/* Action Button */}
-        <button className="btn btn-success w-100 fw-bold shadow-sm">
-          View Menu
-        </button>
-      </div>
-    </div>
-  );
-};
-
 // --- Component 2: Filter Sidebar ---
 const FilterSidebar = ({ isMobileOpen, toggleMobileFilter }) => {
   // State to manage the collapse/expand of filters
@@ -166,7 +85,7 @@ const FilterSidebar = ({ isMobileOpen, toggleMobileFilter }) => {
   const isFilterOpen = (id) => openFilters[id] || false;
 
   // Use a custom style to show/hide the sidebar based on screen size/state
-  const sidebarClass = `bg-white p-4 rounded-3 shadow-lg mb-4 mb-md-0 sticky-top ${
+  const sidebarClass = `bg-white p-4 rounded-3 shadow-lg mb-4 mb-md-0${
     isMobileOpen ? "d-block" : "d-none d-md-block"
   }`;
 
@@ -324,7 +243,6 @@ const FilterSidebar = ({ isMobileOpen, toggleMobileFilter }) => {
     </aside>
   );
 };
-
 // --- Component 3: Main App / Listing Component ---
 const RestaurantListing = () => {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
@@ -345,15 +263,8 @@ const RestaurantListing = () => {
   return (
     <div className="min-vh-100" style={{ backgroundColor: "#f7f9fb" }}>
       {/* Header & Search Bar (Sticky) */}
-      <header
-        className="sticky-top bg-white shadow-sm p-3"
-        style={{ zIndex: 1020 }}
-      >
+      <header className="bg-white shadow-sm p-3">
         <div className="container-xxl d-flex flex-column flex-md-row justify-content-between align-items-center">
-          {/* Logo/Title */}
-          {/* <h1 className="fs-2 fw-bold text-dark mb-3 mb-md-0">
-            Gourmet<span className="text-success">Hub</span>
-          </h1> */}
           {/* Search Input */}
           <div className="w-100 w-md-50 mx-md-3">
             <div className="input-group">
@@ -369,13 +280,13 @@ const RestaurantListing = () => {
             </div>
           </div>
           {/* Location Button */}
-          {/* <button
+          <button
             className="btn d-none d-md-flex align-items-center text-secondary hover-success mt-3 mt-md-0"
             style={{ whiteSpace: "nowrap" }}
           >
             <MapPin size={20} className="me-1" />
             Current Location
-          </button> */}
+          </button>
         </div>
       </header>
 
@@ -415,7 +326,7 @@ const RestaurantListing = () => {
             <div className="row g-4">
               {restaurantsData.map((restaurant, index) => (
                 <div className="col-12 col-sm-6 col-lg-4" key={index}>
-                  <RestaurantCard restaurant={restaurant} />
+                  <Card restaurant={restaurant} />
                 </div>
               ))}
             </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Luli = () => {
+const Homemain = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Luli = () => {
   )
 }
 
-export default Luli
+export default Homemain

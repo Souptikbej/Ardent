@@ -41,6 +41,24 @@
     width: 100%;
 }
 
+/* Cart Badge */
+.cart-count-badge {
+    position: absolute;
+    top: 2px;
+    right: -10px;
+    background-color: #fff;
+    color: #ff7b00;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
 /* MOBILE NAV */
 @media (max-width: 992px) {
     .navbar-nav {
@@ -50,10 +68,36 @@
         margin-top: 10px;
     }
 
+    .cart-count-badge {
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        font-size: 13px;
+    }
+
     .btn {
         width: 100%;
         justify-content: center;
     }
+}
+
+/* Cart Badge */
+.cart-count-badge {
+    position: absolute;
+    top: 2px;
+    right: -10px;
+    background-color: #fff;
+    color: #ff7b00;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
 
 .hero-section {

@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { ShoppingCart, CircleUserRound } from "lucide-react";
 import { NavLink } from "react-router-dom";
+
 const Nav = () => {
+  // Example cart count (you can later make it dynamic using props or context)
+  const [cartCount, setCartCount] = useState(3);
+
   return (
     <nav className="navbar navbar-expand-lg custom-navbar shadow-sm">
       <div className="container">
@@ -36,14 +40,17 @@ const Nav = () => {
             </li>
 
             <li className="nav-item">
-              <NavLink to="/stores" className="nav-link text-white fw-semibold">
+              <NavLink
+                to="/Aboutus"
+                className="nav-link text-white fw-semibold"
+              >
                 Stores
               </NavLink>
             </li>
 
             <li className="nav-item">
               <NavLink
-                to="/contact"
+                to="/Contactus"
                 className="nav-link text-white fw-semibold"
               >
                 Contact Us
@@ -51,12 +58,15 @@ const Nav = () => {
             </li>
 
             {/* Cart */}
-            <li className="nav-item">
+            <li className="nav-item position-relative">
               <NavLink
                 to="/cart"
-                className="nav-link d-flex align-items-center gap-1 text-white fw-semibold"
+                className="nav-link d-flex align-items-center gap-1 text-white fw-semibold position-relative"
               >
                 <ShoppingCart size={18} /> Cart
+                {cartCount > 0 && (
+                  <span className="cart-count-badge">{cartCount}</span>
+                )}
               </NavLink>
             </li>
 
