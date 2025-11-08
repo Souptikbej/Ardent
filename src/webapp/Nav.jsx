@@ -52,48 +52,28 @@ const Nav = () => {
           className="collapse navbar-collapse justify-content-end"
           id="navbarNav"
         >
-          <ul className="navbar-nav align-items-center gap-lg-3">
+          <ul className="navbar-nav align-items-center gap-lg-5">
             <li className="nav-item">
-              <NavLink
-                to="/menu"
-                className={`nav-link fw-semibold ${
-                  theme === "dark" ? "text-light" : "text-dark"
-                }`}
-              >
+              <NavLink to="/menu" className="nav-links fw-semibold ">
                 Our Menu
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink
-                to="/Aboutus"
-                className={`nav-link fw-semibold ${
-                  theme === "dark" ? "text-light" : "text-dark"
-                }`}
-              >
+              <NavLink to="/Aboutus" className="nav-links fw-semibold ">
                 About Us
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink
-                to="/Contactus"
-                className={`nav-link fw-semibold ${
-                  theme === "dark" ? "text-light" : "text-dark"
-                }`}
-              >
+              <NavLink to="/Contactus" className="nav-links fw-semibold">
                 Contact Us
               </NavLink>
             </li>
 
             {/* Cart */}
             <li className="nav-item position-relative">
-              <NavLink
-                to="/cart"
-                className={`nav-link d-flex align-items-center gap-2 fw-semibold position-relative ${
-                  theme === "dark" ? "text-light" : "text-dark"
-                }`}
-              >
+              <NavLink to="/cart" className="nav-links cart fw-semibold">
                 <ShoppingCart size={18} /> Cart
                 {cartCount > 0 && (
                   <span className="cart-count-badge">{cartCount}</span>
@@ -118,15 +98,7 @@ const Nav = () => {
             <li className="nav-item">
               <button
                 onClick={toggleTheme}
-                className={`btn border-0 rounded-circle p-2 ms-2 ${
-                  theme === "dark" ? "text-warning" : "text-dark"
-                }`}
-                style={{
-                  backgroundColor:
-                    theme === "dark"
-                      ? "rgba(255,255,255,0.1)"
-                      : "rgba(0,0,0,0.05)",
-                }}
+                className="btn border-0 rounded-circle p-2 ms-2 "
               >
                 {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
               </button>

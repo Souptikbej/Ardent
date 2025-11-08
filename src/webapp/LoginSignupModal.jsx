@@ -110,7 +110,7 @@ const LoginSignupModal = ({ show, onHide }) => {
         )}
       </Modal.Body>
 
-      <Modal.Footer className="border-0">
+      {/* <Modal.Footer className="border-0">
         <Button
           variant="outline-light"
           onClick={onHide}
@@ -118,7 +118,7 @@ const LoginSignupModal = ({ show, onHide }) => {
         >
           Close
         </Button>
-      </Modal.Footer>
+      </Modal.Footer> */}
     </Modal>
   );
 };
