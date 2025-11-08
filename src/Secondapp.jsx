@@ -21,7 +21,6 @@ const MainContent = ({ sendLocation, location }) => {
 
   // ✅ Check if the user is on the home page
   const isHomePage = pathname === "/";
-
   return (
     <>
       <Routes>

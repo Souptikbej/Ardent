@@ -71,7 +71,7 @@ const Nav = () => {
                   theme === "dark" ? "text-light" : "text-dark"
                 }`}
               >
-                Stores
+                About Us
               </NavLink>
             </li>
 
@@ -106,11 +106,7 @@ const Nav = () => {
               <button
                 type="button"
                 onClick={() => setShowModal(true)} // 👈 Open modal
-                className={`btn ${
-                  theme === "dark"
-                    ? "btn-warning text-dark"
-                    : "btn-dark text-white"
-                } fw-semibold px-3 py-1 rounded-pill d-flex align-items-center gap-1`}
+                className="btn fw-semibold px-3 py-1 rounded-pill d-flex align-items-center gap-1"
                 data-bs-toggle="modal"
                 data-bs-target="#authModal"
               >
