@@ -14,6 +14,7 @@ import Footer from "./webapp/Footer";
 import Nav from "./webapp/Nav";
 import HerorestaurantsSection from "./webapp/HerorestaurantsSection";
 import RestaurantListing from "./webapp/RestaurantListing";
+import Herooffersec from "./webapp/Herooffersec";
 
 const MainContent = ({ sendLocation, location }) => {
   const { pathname } = useLocation();
@@ -31,12 +32,13 @@ const MainContent = ({ sendLocation, location }) => {
               <Hero sendLocation={sendLocation} />
               <FoodCategories />
               <HerorestaurantsSection location={location} />
+              <Herooffersec />
             </>
           }
         />
         <Route path="/Aboutus" element={<About />} />
         <Route path="/Contactus" element={<Contact />} />
-        <Route path="/restaurants" element={<RestaurantListing/>} />
+        <Route path="/restaurants" element={<RestaurantListing />} />
       </Routes>
     </>
   );

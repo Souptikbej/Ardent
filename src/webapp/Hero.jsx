@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MapPin, ArrowRight } from "lucide-react";
 import mann from "../assets/heroimg.png";
+import "./Hero.css";
 
 const Hero = ({ sendLocation }) => {
   const [location, setLocation] = useState("");

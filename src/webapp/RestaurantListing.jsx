@@ -12,6 +12,7 @@ import {
   CircleDot,
 } from "lucide-react";
 import Card from "./Card";
+import Data from "./Data";
 
 // --- Mock Data (Same as original HTML) ---
 const restaurantsData = [
@@ -71,8 +72,6 @@ const restaurantsData = [
   },
 ];
 
-// --- Utility Functions (for Star Rating) ---
-// --- Component 1: Restaurant Card ---
 // --- Component 2: Filter Sidebar ---
 const FilterSidebar = ({ isMobileOpen, toggleMobileFilter }) => {
   // State to manage the collapse/expand of filters
